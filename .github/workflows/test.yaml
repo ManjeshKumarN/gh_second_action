@@ -1,0 +1,21 @@
+name: Test Project
+on: push 
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code 
+        uses: actions/checkout@v3 # for using the actions defined from marketplace 
+        #with:   # to provide configuarations for the actions used under uses:
+                # can clone other repository but by default it will be the current repository 
+      - name: Install Node jobs
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 16
+      - name: install dependences
+        run: npm ci #similar to pip install -r requirements.txt
+      - name: run tests
+        run: npm test
+
+
+
